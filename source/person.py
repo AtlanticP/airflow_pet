@@ -14,6 +14,13 @@ def get_loan() -> str | None:
     loan = fake.bank()
     return choice([None, loan])
 
+def get_loan_size() -> float | None:
+    """Возвращает размер имеющегося кредита"""
+
+    bottom = 15000
+    top = 15000000
+    return randint(bottom, top)
+
 def get_children() -> int:
     """Возвращает число детей на иждивении"""
 
@@ -37,6 +44,7 @@ fake.add_provider(sex)
 
 def get_person() -> dict[str, str | int]:
     """Возвращает персональные данные лица"""
+
     person = { 
             "name": fake.name(),   
             "sex": fake.sex() ,
@@ -44,11 +52,17 @@ def get_person() -> dict[str, str | int]:
             "region": fake.region(),
             "job": fake.job(),
             "phone": fake.phone_number(),
-            "loans": get_loan(),
+            "loan": get_loan(),
             "children": get_children(),
             "residence_type": choice(list("ABCD")),
             "salary": get_salary()
     }
+
+    if person["loan"]:
+        person["loan_size"] = get_loan_size()
+
+    else:
+        person["loan_size"] = None
 
     return person
 
