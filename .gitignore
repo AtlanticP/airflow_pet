@@ -1,7 +1,11 @@
-  airflow-webserver.pid
-  airflow.cfg
-  airflow.db
-  init.sh
-  logs/
-  temp.py
-  webserver_config.py
+.air/
+airflow-webserver.pid
+airflow.cfg
+airflow.db
+init.sh
+logs/
+temp.py
+webserver_config.py
+**/__pycache__/
+**/temp.py
+api/
