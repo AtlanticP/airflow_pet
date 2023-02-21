@@ -9,3 +9,10 @@ webserver_config.py
 **/__pycache__/
 **/temp.py
 api/
+dags/mydag.py
+build/
+constants.egg-info/
+dags/.airflowignore
+dist/
+utils/
+UNKNOWN.egg-info/

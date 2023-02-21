@@ -1,1 +1,1 @@
-from .constants import API_PATH, API_DIR    # type: ignore !!!!!!
+from constants.constants import API_PATH, API_DIR    # type: ignore !!!!!!
