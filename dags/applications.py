@@ -6,7 +6,6 @@ from airflow.providers.postgres.hooks.postgres import PostgresHook
 
 import json
 from constants import API_PATH
-import psycopg2
 import re
 
 @task(task_id="extract_data_applications")
@@ -65,7 +64,7 @@ default_args = {
 with DAG(
     'applications',
     default_args=default_args,
-    schedule_interval=timedelta(seconds=10),
+    schedule_interval=timedelta(seconds=5),
     catchup=False                   # нагнать текущую дату, начиная с даты старта
 ):
     

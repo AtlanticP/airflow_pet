@@ -12,7 +12,7 @@ from datetime import timedelta
 
 @task(task_id="create_batch_API")
 def create_batch() -> None:
-    """..."""    # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    """Создание батча случайного размера от 1 до 10"""
 
     n = random.randint(1, 10)    # Кол-во заявителей
     to_dump = {"persons": [ get_person() for _ in range(n)]}
