@@ -14,5 +14,4 @@ build/
 constants.egg-info/
 dags/.airflowignore
 dist/
-utils/
 UNKNOWN.egg-info/
