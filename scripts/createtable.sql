@@ -30,7 +30,6 @@ CREATE TABLE request (
 	loan_size			TEXT,
 	residence_type 		CHAR,
 	salary				INT,
-	CHECK (birthday <= now() - interval '18 years'),
 	CONSTRAINT unique_person UNIQUE ("name", applying, birthday)
 );
 
