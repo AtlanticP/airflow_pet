@@ -6,13 +6,17 @@ from airflow.utils.dates import days_ago
 from utils import get_person
 import random
 import json
-from constants import API_PATH 
+from constants import API_PATH, API_DIR 
 from datetime import timedelta
+from pathlib import Path
 
 
 @task(task_id="create_batch_API")
 def create_batch() -> None:
     """Создание батча случайного размера от 1 до 10"""
+
+    api_dir = Path(API_DIR) 
+    api_dir.mkdir(exist_ok=True)    # Создает папку api, если не существует
 
     n = random.randint(1, 10)    # Кол-во заявителей
     to_dump = {"persons": [ get_person() for _ in range(n)]}
