@@ -1,18 +1,18 @@
 -- Функция, которая создает пользователя, если его не существует
-DROP FUNCTION IF EXISTS create_user(name,text);
-CREATE OR REPLACE FUNCTION create_user(rname NAME, pass TEXT) RETURNS void AS
+DROP FUNCTION IF EXISTS create_user(name, text);
+CREATE OR REPLACE FUNCTION create_user(rname NAME, rpass TEXT) RETURNS void AS
 $$
-BEGIN
+BEGIN 
     IF NOT EXISTS (
 		SELECT rolname FROM pg_catalog.pg_roles WHERE rolname = rname
     ) 
     	THEN
-	        EXECUTE format('CREATE USER %I WITH PASSWORD ''pass''', rname, pass);
+	         EXECUTE format('CREATE USER %I WITH PASSWORD %L', rname, rpass);
     END IF;
 END
 $$
 LANGUAGE plpgsql;
-SELECT create_user('user1', 'pass');
+SELECT create_user('user1', :pass);
 
 -- создать таблицу Request
 DROP TABLE IF EXISTS request;

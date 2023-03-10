@@ -3,7 +3,7 @@ from airflow.operators.bash import BashOperator
 from airflow.utils.dates import days_ago
 import os
 
-PASSWORD = os.environ["MY_PASSWORD"]
+PASSWORD = os.environ["DB_USER_PASSWORD"]
 HOME = os.environ["HOME"]
 PATH_TO_SCRIPTS = os.path.join(os.path.join(HOME, "airflow"), "scripts")
 
